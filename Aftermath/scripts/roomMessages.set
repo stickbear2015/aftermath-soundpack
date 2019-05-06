@@ -1,0 +1,3 @@
+#trigger {In the distance you hear police sirens.} {
+#if {@silentmode = 1} {
+#play {aftermath\roomMessages\police.wav} @vol}} {}

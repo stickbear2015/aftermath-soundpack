@@ -1,0 +1,17 @@
+#TRIGGER {*You heft your pickaxe and bring it down in a heavy arc*} {#Gagline ALL} {}
+#TRIGGER {*WHACK! You continue chipping away at the earth*} {#Gagline ALL} {}
+#TRIGGER {*KLACK! Your pickaxe clangs loudly against the rock*} {#Gagline ALL} {}
+#TRIGGER {*Grime accumulates on your sweaty body as you continue to mine*} {#Gagline ALL} {}
+#TRIGGER {*Rock chips fly as you bring your pickaxe down*} {#Gagline ALL} {}
+#TRIGGER {*Chips of rock scatter as you strike again and again*} {#Gagline ALL} {}
+#TRIGGER {*You wheeze as you pry a stubborn chunk of rock free*} {#Gagline ALL} {}
+#TRIGGER {*You continue mining the area*} {#Gagline ALL} {}
+#TRIGGER {*Chunks fly as your pickaxe clatters against the rocks*} {#Gagline ALL} {}
+#TRIGGER {*CRACK! You strike true and leave a visible crack in the wall*} {#Gagline ALL} {}
+#TRIGGER {*Sweat stings your eyes as you continue to dig*} {#Gagline ALL} {}
+#TRIGGER {*The rocks shatter against your pickaxe*} {#Gagline ALL} {}
+#TRIGGER {*The earth crumbles under your pickaxe*} {#Gagline ALL} {}
+#TRIGGER {*You grunt as you heft the pickaxe overhead and strike*} {#Gagline ALL} {}
+#TRIGGER {*A rock fragment breaks free and shatters on the ground*} {#Gagline ALL} {}
+#TRIGGER {*You pause a moment to admire your efforts, then strike again*} {#Gagline ALL} {}
+#TRIGGER {*You continue chipping away at the earth*} {#Gagline ALL} {}

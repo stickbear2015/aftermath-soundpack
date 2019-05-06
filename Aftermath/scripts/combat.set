@@ -1,0 +1,234 @@
+
+#TRIGGER {[[] * */500 *} {#var vstress {%1} ; #var cstress {%2} ;#sub {Stress [ @cstress of 500 ]}} {}
+#TRIGGER {Health *[[] */* ]} {#var chp {%2} ; #var xhp {%3}} {}
+#TRIGGER {[[] -* */*] *} {#if {%3 = @xhp} {
+#if {@silentmode = 1} {
+#Play {aftermath\combat\ow.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}}} {combat}
+#TRIGGER {[[]party] * joined the party.} {
+#if {@silentmode = 1} {
+#Play {aftermath\combat\PartyJoin.wav} @vol}} {}
+#TRIGGER {[[]party] *: "*} {
+#if {@silentmode = 1} {
+#Play {aftermath\combat\Party.wav} @vol}} {chan}
+#TRIGGER {[[]?/?][[]*] *} {#var cp {%trim(%3)} ; #var csend {%4} ; #sub {@csend [@cp]} ; 
+#if {@silentmode = 1} {
+#Play {aftermath\combat\miss.wav} 70;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#TRIGGER {[[]?x?][[]*] *} {#var cp {%trim(%3)} ; #var csend {%4} ; #sub {@csend [@cp]} ;
+#if {@silentmode = 1} {
+#Play {aftermath\combat\BlockLight.wav} 70;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#TRIGGER {[[]*X?][[]*] *} {#var cp {%trim(%3)} ; #var csend {%4} ; #sub {@csend [@cp]} ;
+#if {@silentmode = 1} {
+#Play {aftermath\combat\BlockHeavy.wav} 70;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#TRIGGER {[[]?'?][[]*] *} {#var cp {%trim(%3)} ; #var csend {%4} ; #sub {@csend [@cp]} ;
+#if {@silentmode = 1} {
+#Play {aftermath\combat\damage1.wav} 70;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#TRIGGER {[[]?[*]?][[]*] *} {#var cp {%trim(%3)} ; #var csend {%4} ; #sub {@csend [@cp]} ;
+#if {@silentmode = 1} {
+#Play {aftermath\combat\damage2.wav} 70;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#TRIGGER {[[]?[#]?][[]*] *} {#var cp {%trim(%3)} ; #var csend {%4} ; #sub {@csend [@cp]} ;
+#if {@silentmode = 1} {
+#Play {aftermath\combat\damage3.wav} 70;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#TRIGGER {[[]?[#]*][[]*] *} {#var cp {%trim(%3)} ; #var csend {%4} ; #sub {@csend [@cp]} ;
+#if {@silentmode = 1} {
+#Play {aftermath\combat\damage4.wav} 70;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#TRIGGER {[[]?[#][#][#]?][[]*] *} {#var cp {%trim(%3)} ; #var csend {%4} ; #sub {@csend [@cp]} ;
+#if {@silentmode = 1} {
+#Play {aftermath\combat\damage5.wav} 70;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#TRIGGER {[[]?v?][[]*] *} {#var cp {%trim(%3)} ; #var csend {%4} ; #sub {@csend [@cp]} ;
+#if {@silentmode = 1} {
+#Play {aftermath\combat\bounce.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#TRIGGER {[[]?>?][[]*] *} {#var cp {%trim(%3)} ; #var csend {%4} ; #sub {@csend [@cp]} ;
+#if {@silentmode = 1} {
+#Play {aftermath\combat\DodgeHeavy.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#TRIGGER {[[]?)?][[]*] *} {#var cp {%trim(%3)} ; #var csend {%4} ; #sub {@csend [@cp]} ;
+#if {@silentmode = 1} {
+#Play {aftermath\combat\DodgeLight.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#TRIGGER {You cautiously engage * in combat.} {
+#if {@silentmode = 1} {
+#Play {aftermath\combat\CombatStart.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+#TRIGGER {You start attacking *.} {
+#if {@silentmode = 1} {
+#Play {aftermath\combat\CombatStart.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+#TRIGGER {You rush aggressively at *.} {#var foe {%1} ;
+#if {@silentmode = 1} {
+#Play {aftermath\combat\CombatStart.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+#TRIGGER {*! That hit to your hand made you drop your *!} {#alarm 1 {get @weapon} ;
+#if {@silentmode = 1} {
+#Play {aftermath\combat\Disarm.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+#TRIGGER {*zombie* attacks you!} {
+#if {@silentmode = 1} {
+#Play {aftermath\npc\ZombieAggro.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+#TRIGGER {* immediately falls over, totally inert.} {
+#if {@silentmode = 1} {
+#Play {aftermath\npc\ZombieDeath.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+#TRIGGER {*zombie* slowly flails * claws in *'s direction.} {#gagline all ;
+#if {@silentmode = 1} {
+#Play {aftermath\npc\ZombieAttack*3.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+#TRIGGER {*zombie* aims a creeping swing at * with * claws.} {#gagline all ;
+#if {@silentmode = 1} {
+#Play {aftermath\npc\ZombieAttack*3.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+	#TRIGGER {* cries piteously, * tiny limbs splaying out stiff and dead.} {
+#if {@silentmode = 1} {
+#Play {aftermath\npc\OrphanDeath.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+#TRIGGER {*crack* attacks you!} {
+#if {@silentmode = 1} {
+#Play {aftermath\npc\CrackheadAttack.wav} @vol; #if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+#TRIGGER {* crack* crumples to the ground, gasps out * last breath, and dies.} {
+#if {@silentmode = 1} {
+#Play {aftermath\npc\CrackheadDeath.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+#TRIGGER {* directs an electromagnet at *, yanking * out of * hands and onto the floor!} {
+#if {@silentmode = 1} {
+#Play {aftermath\combat\Disarm.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+#TRIGGER {[[] * */500 *} {#var vstress {%1} ; #var cstress {%2} ;#sub {Stress [ @cstress of 500 ]}} {}
+#TRIGGER {Health *[[] */* ]} {#var chp {%2} ; #var xhp {%3}} {}
+#TRIGGER {[[] -* */*] *} {#if {%3 = @xhp} {
+#if {@silentmode = 1} {
+#Play {aftermath\combat\ow.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}}} {combat}
+#TRIGGER {You couldn't get away!} {
+#if {@silentmode = 1} {
+#Play {aftermath\combat\Panic.wav} 80;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+#TRIGGER {Flames cover * body amid screams of agony.} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\OnFire.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+#TRIGGER {* bursts into flames!} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\BurstIntoFlames.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {}
+#TRIGGER {You start to feel stressed out.} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\stress.wav} @vol}} {}
+#TRIGGER {Your body tenses painfully with stress and exhaustion.} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\stress.wav} @vol}} {}
+#trigger {* clone crumples to the ground, gasps out * last breath, and dies.} {
+#if {@silentmode = 1} {
+#play {aftermath\combat\clone dies*5.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#trigger { * zombie face freezes in shock as * connects with its skull, then goes blank as its head goes flying through the air leaving a trail of spattered blood.} {
+#if {@silentmmode = 0} {
+#play {aftermath\combat\zombie head.wav} 70;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#trigger {* rears back and winds up for * attack.} {
+#if {@silentmode = 1} {
+#play {aftermath\combat\power.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#trigger {* treeman creaks and groans, falling apart into a pile of kindling.} {
+#if {@silentmode = 1} {
+#play {aftermath\npc\tree dieing.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#trigger {*Bolts of electricity arc into *} {
+#if {@silentmode = 1} {
+#play {aftermath\combat\shock1.wav} @vol}} {}
+#trigger {The jigsurgeon's hull ruptures with an explosive POP, shooting black smoke and sparks.  It collapses in a heap of wreckage.} {
+#if {@silentmode = 1} {
+#play {aftermath\combat\clone dies*5.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#trigger {* screams, wavers in and out of existence, then pop! it's gone, leaving the stench of burning hair.} {
+#if {@silentmode = 1} {
+#play {aftermath\npc\ghostDeathA.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#trigger {* shrieks, goes stiff, and falls over dead.} {
+#if {@silentmode = 1} {
+#play {aftermath\npc\chudDies.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#trigger {*chud* attacks you!} {
+#if {@silentmode = 1} {
+#play {aftermath\npc\chudAttack.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#trigger {* chobo attacks you!} {
+#if {@silentmode = 1} {
+#play {aftermath\npc\chudAttack.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#trigger {* chobo crumples to the ground, gasps out his last breath, and dies.} {
+#if {@silentmode = 1} {
+#play {aftermath\npc\chudDies.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#trigger {* stretches back and releases an air-vibrating roar, echoing in the wind. * crumples forward on all-fours and slumps forward - dead.} {
+#if {@silentmode = 1} {
+#play {aftermath\npc\bearDies.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#trigger {* chicken crumples to the ground, gasps out her last breath, and dies.} {
+#if {@silentmode = 1} {
+#play {aftermath\npc\chickenDeathA.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#trigger {* rooster crumples to the ground, gasps out his last breath, and dies.} {
+#if {@silentmode = 1} {
+#play {aftermath\npc\chickenDeathA.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#trigger {* cock crumples to the ground, gasps out his last breath, and dies.} {
+#if {@silentmode = 1} {
+#play {aftermath\npc\chickenDeathA.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}
+#trigger {*beefalo stiffens, topples over and crashes to the earth -- dead.} {
+#if {@silentmode = 1} {
+#play {aftermath\npc\cowDeath.wav} @vol;
+#if {@panCombat = 1} {
+#pc %playHandle pan %random(-4000,4000)}}} {combat}

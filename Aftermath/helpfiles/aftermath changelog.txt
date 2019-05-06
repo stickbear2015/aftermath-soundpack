@@ -1,0 +1,115 @@
+Welcome to the changelog for the Aftermath soundpack.
+1. Added an options menu.
+copy hellmoo.set, optionsMenu.set and settings.set.
+2. Added swimming sounds.
+Copy the move folder and misc.set.
+3. added a sound for the Cheers bar.
+Copy rooms/cheers bar.wav and misc.set.
+4. Added sounds for zombies.
+Copy misc.set.
+5. Added pan swimming.
+Copy misc.set, settings.set, hellmoo.set optionsMenu.set, keys.set and helpfiles/keys.txt.
+6. Fixed the channel sounds.
+Copy communication.set.
+7. Added a sound for when people ask you for mercy.
+Copy misc/beg.wav and misc.set.
+8. Added a sound for tradenet.
+Copy com/tradenet.wav and communication.set.
+9. Added sounds for when chuds die.
+Copy npc/chudAttack.wav, npc/chudDies.wav and combat.set.
+10. Added sounds for ghosts.
+Copy combat.set.
+11. Added sounds for jig Surgens.
+Copy combat.set.
+12. Added prompt sounds for character creation.
+Copy misc.set.
+13. Made it so when doors open from outside you will hear the door open sound.
+Copy misc.set.
+14. Made it so when doors close from outside the door close sound will play.
+Copy misc.set.
+15. Finally we now have roomsounds Hooray!
+Copy rooms folder, rooms.set, misc.set, keys.set, settings.set and helpfiles/keys.txt.
+16. The volume for the backgrounds now save automatically.
+Copy aftermath.set, keys.set and settings.set.
+17. You can now adjust room sound volume and turn off your backgrounds in the options menu.
+Copy optionsmenu.set
+18. Made a volume checker.
+Copy optionsmenu.set and helpfiles/keys.txt.
+19. Added a sound for mailnet.
+Copy com/mailnet.wav and communication.set.
+20. Added a sound for when people get paid on contracts.
+Copy com/corpPay.wav and communication.set.
+21. Added a prompt sound for people can enter more lines of text.
+Copy misc.set.
+22. Added a background sound for crater rim.
+Copy rooms/crater rim.wav and rooms.set.
+23. Added a readme thanks to Craig's help.
+Copy helpfiles/readme.txt.
+24. Added a key to open the readme.
+Copy keys.set.
+25. Added a way to open the readme in the options menu.
+Copy optionsmenu.set.
+26. Made the sound for the sky quieter.
+Copy misc.set.
+27. Fixed the newbienet sound.
+Copy communication.set.
+28. Fixed the mailnet sound.
+Copy communication.set.
+29. Added a sound for when there is new activity to lists.
+Copy misc\activity.wav and misc.set.
+30. Fixed it so you hear when you sit on objects.
+Copy socials.set.
+31. Fixed the stand sound for when you stand from objects.
+Copy socials.set.
+32. Added a new sound for the radio and moved it into comms.
+Copy comm/radio.wav, communication.set and misc.set.
+33. Added a sound to let you know your underwater.
+Copy rooms/underwater.wav and misc.set.
+34. Made the drink sound louder.
+Copy misc/drink.wav.
+35. Changed the sound for planes.
+Copy plane/plane.wav.
+36. Added a sound for the forest's heartbeat.
+copy misc/heartbeat.wav and misc.set.
+37. Added a sound for when your alarm goes off on your wristpad.
+Copy comm/alarm.wav and misc.set.
+38. Added a sound for the swamp.
+Copy rooms/swamp.wav and rooms.set.
+39. Added a sound for the mountains.
+Copy rooms/mountain.wav and rooms.set.
+40. Added sounds for buildnet, deathnet, gamenet, healthnet, heartnet, ooc, outnet, prognet, questnet, sysnet and wiznet.
+copy comm/buildnet.wav, comm/deathnet.wav, comm/gamenet.wav, comm/healthnet.wav, comm/heartnet.wav, comm/ooc.wav, comm/outnet.wav, comm/prognet.wav, comm/questnet.wav comm/sysnet.wav, comm/wiznet.wav and communication.set.
+41. Added sounds for shout, yell and thugnet.
+copy comm/thugnet.wav, comm/yell.wav, comm/shout.wav and communication.set.
+42. Fixed the sounds for buildnet and wiznet.
+copy communication.set.
+43. Added sounds for when you disconnect/connect and people see it in the same room your in.
+copy misc.set.
+44. Added a sound for news.
+copy misc/news.wav and misc.set.
+45. Added a new sound for the sewers.
+copy rooms/sewers.wav.
+46. Added a sound for when bats fly.
+copy misc/bat.wav and misc.set.
+47. Added a sound for  the shoreline.
+copy rooms.set.
+48. Added a sound for when bears die.
+Copy npc/bearDies.wav and combat.set.
+49. Added a sound for when chickens roosters and cocks die.
+copy combat.set.
+50. Added a sound for when beefalo die.
+copy combat.set.
+51. removed the orfin sounds.
+delete npc\orphanAcro.wav and npc\orphanDeath.wav.
+52. Added a sound for the chemical plant.
+copy rooms/chemical plant.wav and rooms.set.
+53. Fixed when zombies burp.
+copy misc.set.
+54. Added sounds for cough, clap, applaud, groan, moan and kiss.
+copy socials/kiss1-2.wav, socials/clap.wav, socials/applaud.wav, socials/groan.wav, socials/moan.wav, socials/cough1-5.wav and socials.set.
+55. Added a sound for purr.
+copy socials/purr.wav and socials.set.
+57. Added a sound for shoreline.
+copy rooms/shoreline.wav and rooms.set.
+57. Added a sound for country road.
+copy rooms/country road.wav and room.set.

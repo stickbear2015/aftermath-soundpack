@@ -1,0 +1,9 @@
+#Alias {h} {cut hid from corp} {}
+#Alias {hh} {cut hid from second corp} {}
+#Alias {z} {cut bark from corp} {}
+#Alias {zz} {cut bark from 2.corp} {}
+#Alias {zzz} {cut bark from 3.corp} {}
+#Alias {b} {put all bark in trail} {}
+#Alias {ca} {cut car from corp} {}
+#Alias {t} {cut thi from corp} {}
+#Alias {f} {feint} {}

@@ -1,0 +1,10 @@
+#trigger {* starts the engine and heads for open sea.} {
+#if {@silentmode = 1} {
+#play {aftermath\boat\boatStart.wav} @vol}} {}
+#trigger {* clears the harbor and emerges into open sea.} {
+#if {@silentmode = 1} {
+#playloop {aftermath\boat\boatMoving.wav} @vol; #var boatHandle %playHandle; #var boat 1}} {}
+#trigger {You feel the * come to a stop.} {
+#if {@boat = 1} {
+#pc @boatHandle stop;
+#var boat 0}} {}

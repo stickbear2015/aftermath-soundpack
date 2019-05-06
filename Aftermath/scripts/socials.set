@@ -1,0 +1,165 @@
+#trigger {*stand* up.} {
+#if {@socials = 1} {
+#if {%ifWord(you,%1," ")} {
+#gagline all};
+#play {aftermath\socials\stand.wav} @vol}} {}
+#trigger {You stand up from *} {
+#if {@socials = 1} {
+#play {aftermath\socials\stand.wav} @vol}} {}
+#trigger {* stands up from the floor.} {
+#if {@socials = 1} {
+#play {aftermath\socials\stand.wav} @vol}} {}
+#trigger {You lie down.} {
+#if {@socials = 1} {
+#play {aftermath\socials\lie.wav} @vol}} {}
+#trigger {* lies down.} {
+#if {@socials = 1} {
+#play {aftermath\socials\lie.wav} @vol}} {}
+#trigger {You sit down.} {
+#if {@socials = 1} {
+#play {aftermath\socials\sit.wav} @vol}} {}
+#trigger {* sits down.} {
+#if {@socials = 1} {
+#play {aftermath\socials\sit.wav} @vol}} {}
+#trigger {You sit * the *} {
+#if {@socials = 1} {
+#play {aftermath\socials\sit.wav} @vol}} {}
+#trigger {* sits on the *} {
+#if {@socials = 1} {
+#play {aftermath\socials\sit.wav} @vol}} {}
+#trigger {*take* a stool at the bar.} {
+#if {@socials = 1} {
+#play {aftermath\socials\sit.wav} @vol}} {}
+#trigger {You laugh.} {
+#if {@socials = 1} {
+#play {aftermath\socials\laugh*6.wav} @vol}} {}
+#trigger {* laughs.} {
+#if {@socials = 1} {
+#play {aftermath\socials\laugh*6.wav} @vol}} {}
+#trigger {* laughs at *} {
+#if {@socials = 1} {
+#play {aftermath\socials\laugh*6.wav} @vol}} {}
+#trigger {You burp.} {
+#if {@socials = 1} {
+#play {aftermath\socials\burp*5.wav} @vol}} {}
+#trigger {* burps.} {
+#if {@socials = 1} {
+#play {aftermath\socials\burp*5.wav} @vol}} {}
+#trigger {You chuckle.} {
+#if {@socials = 1} {
+#play {aftermath\socials\chuckle.wav} @vol}} {}
+#trigger {* chuckles.} {
+#if {@socials = 1} {
+#play {aftermath\socials\chuckle.wav} @vol}} {}
+#trigger {You cheer.} {
+#if {@socials = 1} {
+#play {aftermath\socials\cheer*5.wav} @vol}} {}
+#trigger {* cheers.} {
+#if {@socials = 1} {
+#play {aftermath\socials\cheer*5.wav} @vol}} {}
+#trigger {You fart.} {
+#if {@socials = 1} {
+#play {aftermath\socials\fart*5.wav} @vol}} {}
+#trigger {* farts.} {
+#if {@socials = 1} {
+#play {aftermath\socials\fart*5.wav} @vol}} {}
+#trigger {You cackle.} {
+#if {@socials = 1} {
+#play {aftermath\socials\cackle.wav} @vol}} {}
+#trigger {You cackle at *} {
+#if {@socials = 1} {
+#play {aftermath\socials\cackle.wav} @vol}} {}
+#trigger {* cackles.} {
+#if {@socials = 1} {
+#play {aftermath\socials\cackle.wav} @vol}} {}
+#trigger {* cackles at *} {
+#if {@socials = 1} {
+#play {aftermath\socials\cackle.wav} @vol}} {}
+#trigger {You whistle.} {
+#if {@socials = 1} {
+#play {aftermath\socials\whistle*6.wav} @vol}} {}
+#trigger {You whistle at *} {
+#if {@socials = 1} {
+#play {aftermath\socials\whistle*6.wav} @vol}} {}
+#trigger {* whistles.} {
+#if {@socials = 1} {
+#play {aftermath\socials\whistle*6.wav} @vol}} {}
+#trigger {You yawn.} {
+#if {@socials = 1} {
+#play {aftermath\socials\yawn*2.wav} @vol}} {}
+#trigger {* yawn.} {
+#if {@socials = 1} {
+#play {aftermath\socials\yawn*2.wav} @vol}} {}
+#trigger {You poke.} {
+#if {@socials = 1} {
+#play {aftermath\socials\poke.wav} @vol}} {}
+#trigger {* pokes *} {
+#if {@socials = 1} {
+#play {aftermath\socials\poke.wav} @vol}} {}
+#trigger {You giggle.} {
+#if {@socials = 1} {
+#play {aftermath\socials\giggle*2.wav} @vol}} {}
+#trigger {* giggles.} {
+#if {@socials = 1} {
+#play {aftermath\socials\giggle*2.wav} @vol}} {}
+#trigger {You giggle at *} {
+#if {@socials = 1} {
+#play {aftermath\socials\giggle*2.wav} @vol}} {}
+#trigger {* giggles at *} {
+#if {@socials = 1} {
+#play {aftermath\socials\giggle*2.wav} @vol}} {}
+#trigger {You slap.} {
+#if {@socials = 1} {
+#play {aftermath\socials\slap*5.wav} @vol}} {}
+#trigger {* slaps.} {
+#if {@socials = 1} {
+#play {aftermath\socials\slap*5.wav} @vol}} {}
+#trigger {You slap *} {
+#if {@socials = 1} {
+#play {aftermath\socials\slap*5.wav} @vol}} {}
+
+#trigger {* slaps *} {
+#if {@socials = 1} {
+#play {aftermath\socials\slap*5.wav} @vol}} {}
+#trigger {You clap*} {
+#if {@socials = 1} {
+#play {aftermath\socials\clap.wav} @vol}} {}
+#trigger {*claps*} {
+#if {@socials = 1} {
+#play {aftermath\socials\clap.wav} @vol}} {}
+#trigger {You applaud*} {
+#if {@socials = 1} {
+#play {aftermath\socials\applaud.wav} @vol}} {}
+#trigger {*applauds*} {
+#if {@socials = 1} {
+#play {aftermath\socials\applaud.wav} @vol}} {}
+#trigger {You groan*} {
+#if {@silentmode = 1} {
+#play {aftermath\socials\groan.wav} @vol}} {}
+#trigger {*groans*} {
+#if {@silentmode = 1} {
+#play {aftermath\socials\groan.wav} @vol}} {}
+#trigger {You moan*} {
+#if {@silentmode = 1} {
+#play {aftermath\socials\moan.wav} @vol}} {}
+#trigger {*moans*} {
+#if {@silentmode = 1} {
+#play {aftermath\socials\moan.wav} @vol}} {}
+#trigger {You kiss*} {
+#if {@silentmode = 1} {
+#play {aftermath\socials\kiss*2.wav} @vol}} {}
+#trigger {*kisses*} {
+#if {@silentmode = 1} {
+#play {aftermath\socials\kiss*2.wav} @vol}} {}
+#trigger {You cough*} {
+#if {@silentmode = 1} {
+#play {aftermath\socials\cough*5.wav} @vol}} {}
+#trigger {*coughs*} {
+#if {@silentmode = 1} {
+#play {aftermath\socials\cough*5.wav} @vol}} {}
+#trigger {You purr*} {
+#if {@silentmode = 1} {
+#play {aftermath\socials\purr.wav} @vol}} {}
+#trigger {*purrs*} {
+#if {@silentmode = 1} {
+#play {aftermath\socials\purr.wav} @vol}} {}

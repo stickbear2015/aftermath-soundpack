@@ -1,0 +1,306 @@
+#var cont 0
+
+#TRIGGER {Your credit implant beeps for a deposit of * from *.} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\cash.WAV} @vol}} {}
+#trigger {* has been deducted from your credit chip.} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\cash.WAV} @vol}} {}
+#TRIGGER {[[] You earned * XP! ]} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\experience.wav} 70}} {}
+#TRIGGER {[[] You didn't earn any XP for that. ]} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\noxp.wav} @vol}} {}
+#TRIGGER {*You suspect it might be rabid.} {
+#if {@silentmode = 1} {
+#Play {aftermath\npc\rabid.wav} @vol}} {}
+#TRIGGER {* opens *door*.} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\door_open.wav} @vol}} {}
+#trigger {The door to * swings open.} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\door_open.wav} @vol}} {}
+#TRIGGER {* closes *door*.} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\door_close.wav} @vol}} {}
+#trigger {The door to * swings shut.} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\door_close.wav} @vol}} {}
+#TRIGGER {From *, you hear * door latch.} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\door_latch.wav} 50}} {}
+#TRIGGER {* starts treating * wounds with various * and jellies.} {
+#if {@silentmode = 1} {
+#Play {aftermath\item\UseMedKit.wav} @vol}} {} anyCase
+#TRIGGER {* bends down and starts fixing *.} {
+#if {@silentmode = 1} {
+#Play {aftermath\skills\repair.wav} @vol}} {}
+#TRIGGER {*[[] * ] Uh oh -- you're losing your grip...} {#sub {[%2] you're losing your grip...}} {}
+#TRIGGER {SHIT!  You lost your grip and fell from * meters up!} {#sub {You lost your grip and fell from %1 meters up!}} {}
+#TRIGGER {*[[] * ] Damn!  A dead end -- no more handholds above you.} {#sub {No more handholds above you.}} {}
+#TRIGGER {*[[] * ] Fuck!  You're sliding down...} {#sub {[%2] You're sliding down...}} {}
+#TRIGGER {[[] You earned * IP in *! ]} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\IP.wav} @vol} ; #alarm 25 {#Play {aftermath\misc\iptimer.wav} @vol}} {}
+#TRIGGER {*[[] * ] Whew!  You caught yourself -- that was close.} {#sub {[%2] Whew!  You caught yourself -- that was close.}} {}
+#TRIGGER {You can't go that way.} {#gagline all ;
+#if {@silentmode = 1} {
+#Play {aftermath\misc\Cann'tGo.wav} @vol}} {}
+#TRIGGER {Mmmm.  Delicious water.} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\drink.wav} @vol}} {}
+#Alias {cont} {#if {@cont = 1} {#var cont 1} {#var cont 0} ;
+#if {@cont = 1} {#class cont enable ; #say {contract messages off}} ;
+#if {@cont = 1} {#class cont disable ; #say {contract messages on}}} {}
+#TRIGGER {* pulls the yoke back for takeoff.} {
+#if {@silentmode = 1} {
+#Play {aftermath\plane\yoke1.wav} @vol}} {}
+#TRIGGER {*INTEG [[] */* ]  FUEL [[] */* ]  LOAD [[] */* ]} {#gagline voice ; #var integ {%2} ; #var cfuel {%4} ; #var xfuel {%5} ; #var cload {%6} ; #var xload {%7}} {}
+#Alias {ct} {#say {c @cont, f @cfuel}} {}
+#TRIGGER {*CTRL  [[] */10 ]  ALT [[] */* ]} {#gagline voice ; #var cont {%2} ; #var calt {%3} ; #var xalt {%4}} {}
+#TRIGGER {* pushes the yoke down for a landing.} {
+#if {@silentmode = 1} {
+#Play {aftermath\plane\yoke2.wav} @vol}} {}
+#TRIGGER {You feel * shiver as it settles to the ground.} {
+#if {@silentmode = 1} {
+#Play {aftermath\plane\land.wav} @vol}} {}
+#TRIGGER {* pulls back on the stick.} {#var pmove 1 ;
+#if {@silentmode = 1} {
+#Play {aftermath\plane\yoke1.wav} @vol}} {}
+#TRIGGER {Acceleration pushes you down and back, as * begins its ascent.} {#gagline all ;
+#if {@silentmode = 1} {
+#Play {aftermath\plane\Move.wav} @vol}} {}
+#TRIGGER {The acceleration eases as you reach cruising altitude.} {#gagline all ;
+#if {@silentmode = 1} {
+#Play {aftermath\plane\Stop.wav} @vol}} {}
+#TRIGGER {* manipulates the control yoke.} {#var pmove 1 ;
+#if {@silentmode = 1} {
+#Play {aftermath\plane\Move.wav} @vol}} {}
+#TRIGGER {Cockpit (*) *} {#gagline voice ; #if {@pmove = 1} {
+#if {@silentmode = 1} {
+#Play {aftermath\plane\Stop.wav} @vol}; #var pmove 0}} {}
+#trigger {* lurches briefly as it lifts off.} {
+#gagline all;
+#if {@silentmode = 1} {
+#play {aftermath\plane\plane launch.wav} @vol}} {}
+#trigger {You head through the hatch to *} {
+#if {@silentmode = 1} {
+#playloop {aftermath\plane\plane.wav} @vol; #var planeHandle %playHandle; #var plane 1}} {}
+#trigger {You head through the exit hatch.} {
+#if {@plane = 1} {
+#pc @planeHandle stop;
+#var plane 0}} {}
+#trigger {chokes on its last terrified bark, stiffens, and collapses.  It's dead.} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\dog dies.wav} @vol}} {}
+#trigger {[[] *has connected. ]} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\connected.wav} @vol}} {}
+#trigger {[[] *has disconnected. ]} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\disconnected.wav} @vol}} {}
+#trigger {* [[]or `@abort* to abort.]} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\prompt.wav} @vol}} {}
+#trigger {[[] Enter 'yes' or 'no': ]} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\prompt.wav} @vol}} {}
+#trigger {*[[] Enter *yes* or *no* ]} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\prompt.wav} @vol}} {}
+#trigger {[[] `yes' or `no' ]} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\prompt.wav} @vol}} {}
+#trigger {[[] Input needed: Select a character name. *abort to cancel. ]} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\prompt.wav} @vol}} {}
+#trigger {[[]Type lines of input; * to end or *abort' to abort the command.]} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\prompt.wav} @vol}} {}
+#trigger {I don't understand that.} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\command*4.wav} @vol}} {}
+#trigger {You start following *} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\joins.wav} @vol}} {}
+#trigger {You are no longer following *} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\disband.wav} @vol}} {}
+#trigger {You stop following *} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\disband.wav} @vol}} {}
+#trigger {* starts following you.} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\joins.wav} @vol}} {}
+#trigger {The defibrillator beeps to indicate a full recharge.} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\beep*5.wav} @vol}} {}
+#trigger {The ballistics research simulator hisses and beeps twice. A soft hum fills the room.} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\beep*5.wav} @vol}} {}
+#trigger {[[]party] * acting as a tank.} {
+#if {@silentmode = 1} {
+#if {%ifWord(is now,%1," ")} {
+#play {aftermath\misc\start tanking.wav} @vol};
+#if {%ifWord(stops,%1," ")} {
+#play {aftermath\misc\stop tanking.wav} @vol}}} {}
+#trigger {Your bandages wither and fall away from your wounds, the healing salves finally expended.} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\healing.wav} @vol}} {}
+#trigger {The electromechanical research simulator beeps once, long and low.  *} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\long beep.wav} @vol}} {}
+#trigger {[[] Your clone has been updated! All skills and experience saved. ]} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\updateClone.wav} 70}} {}
+#trigger {You pass into the skies far above the ground.} {
+#gagline all;
+#if {@silentmode = 1} {
+#playloop {aftermath\misc\wind.wav} 40; #var windHandle %playHandle; #var wind 1}} {}
+#trigger {You safely alight on the ground.} {
+#if {@wind = 1} {
+#pc @windHandle stop;
+#var wind 0}} {}
+#trigger {* lands lightly on * feet.} {
+#if {@wind = 1} {
+#pc @windHandle stop;
+#var wind 0}} {} anyCase
+#trigger {From the * you hear faint metallic barking.} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\dog.wav} @vol}} {}
+#trigger {* searches through *} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\searchBody.wav} @vol}} {} anyCase
+#trigger {[[] * ]: Accepted contract *} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\contract accepted.wav} @vol}} {}
+#trigger {[[] * ]: * -- Mission completed!} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\contract complete.wav} @vol}} {}
+#trigger {You have new mail *} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\newMail.wav} @vol}} {}
+#TRIGGER {*A small LCD display on the generator reads: *} {#sub %2} {}
+#TRIGGER {*A small LCD display on the generator reads: *} {#sub %2} {}
+#TRIGGER {*A small LCD display on the generator reads: *} {#sub %2} {}
+#Key {F7} {get all shel from corp;put all shel in 2.trail} {}
+#Key {``} {put all artifacts in 3.trail} {}
+#Key {F8} {put all artifacts in 3.trail} {}
+#TRIGGER {*Urgh, you hate being outside*} {#Gagline ALL} {}
+#TRIGGER {*It's got *} {#sub %2} {}
+#trigger {On the classic CRT television: *} {
+#sub {%1};
+#if {@silentmode = 1} {
+#play {aftermath\misc\tv.wav} @vol}} {}
+#trigger {* turns the * shower on.  It comes to life, spraying you with warm water.} {
+#if {@silentmode = 1} {
+#playloop {aftermath\misc\shower.wav} @vol; #var showerHandle %playhandle; #var shower 1}} {}
+#trigger {* turns off the tap on the * shower, and the spray of water stops.} {
+#if {@shower = 1} {
+#pc @showerHandle stop;
+#var shower 0};
+#if {@silentmode = 1} {
+#play {aftermath\misc\showerEnd.wav} @vol}} {}
+#TRIGGER {* and Grand *} {
+#if {@street = 1} {
+#Play {aftermath\Misc\Junction alert.wav} @vol}} {}
+#TRIGGER {San Pablo and Pike *} {
+#if {@street = 1} {
+#Play {aftermath\Misc\Junction alert.wav} @vol}} {}
+#TRIGGER {Fourth and Lumberg *} {
+#if {@street = 1} {
+#Play {aftermath\Misc\Junction alert.wav} @vol}} {}
+#TRIGGER {Fourth and Norton *} {
+#if  {@street = 1} {
+#Play {aftermath\Misc\Junction alert.wav} @vol}} {}
+#TRIGGER {* and High *} {
+#if {@street = 1} {
+#Play {aftermath\Misc\Junction alert.wav} @vol}} {}
+#TRIGGER {* and Cheney *} {
+#if {@street = 1} {
+#Play {aftermath\Misc\Junction alert.wav} @vol}} {}
+#TRIGGER {* and Pike *} {
+#if {@street = 1} {
+#Play {aftermath\Misc\Junction alert.wav} @vol}} {}
+#TRIGGER {You grip the rail and head down the stairs.} {#Gagline ALL;
+#Play {aftermath\misc\stairs.wav} @vol} {}
+#TRIGGER {You head up the stairs.} {#Gagline ALL;
+#Play {aftermath\misc\stairs.wav} @vol} {}
+#TRIGGER {*You feel completely relaxed; every bit of stress has drained out of you.*} {#Gagline ALL;
+#Play {aftermath\Misc\totally relaxed*3.wav} @vol} {}
+#trigger {You grab the head and pull it close to your face.} {
+#gagline all} {}
+#trigger {You smash the head's face against the ground, cracking it open.} {
+#gagline all;
+#if {@silentmode = 1} {
+#play {aftermath\combat/zombie head.wav} @vol}} {}
+#trigger {You scoop some brains into your mouth, using a shard of broken skull as a spoon.} {
+#gagline all} {}
+#trigger {You shovel brain matter into your mouth with your hands.} {
+#gagline all;
+#if {@silentmode = 1} {
+#play {aftermath\misc\eat.wav} @vol}} {}
+#trigger {You scoop up some bloody brain matter and gobble it up.} {
+#gagline all;
+#if {@silentmode = 1} {
+#play {aftermath\misc\eat.wav} @vol}} {}
+#trigger {You finish feeding and let out a horrible gurgling belch.} {
+#gagline all;
+#if {@socials = 1} {
+#play {aftermath\socials\burp*5.wav} @vol}} {}
+#trigger {Mmmm, delicious brains.} {
+#gagline all;
+#if {@silentmode = 1} {
+#play {aftermath\npc\zombieBrains.wav} @vol}} {}
+#trigger {You feel your dead flesh binding your wounds shut.} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\healing.wav} @vol}} {}
+#trigger {You feel your dead flesh knitting together.} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\healing.wav} @vol}} {}
+#TRIGGER {Water drips from your soaked body.} {#Gagline ALL;
+#if {@silentmode = 1} {
+#Play {aftermath\Move\Leave water.wav} @vol}} {}
+#TRIGGER {You wade out into the *} {#Gagline ALL;
+#if {@silentmode = 1} {
+#Play {aftermath\Move\enter water.wav} @vol}} {}
+#TRIGGER {You kick through the water to the *} {#Gagline ALL;
+#if {@silentmode = 1} {
+#Play {aftermath\Move\Underwater swim*2.wav} @vol;
+#if {@panSwim = 1} {
+#pc %playhandle pan %random(-4000,4000)}}} {}
+#TRIGGER {You paddle through the water to the *} {#Gagline ALL;
+#if {@silentmode = 1} {
+#Play {aftermath\Move\Swim*4.wav} @vol;
+#if {@panSwim = 1} {
+#pc %playhandle pan %random(-4000,4000)}}} {}
+#TRIGGER {You dive down under the surface.} {#Gagline ALL;
+#if {@silentmode = 1} {
+#Play {aftermath\Move\Dive underwater.wav} @vol}} {}
+#trigger {You suck in a glorious lungful of air as your head breaks the water's surface. Ahhhhhhh.} {
+#if {@silentmode = 1} {
+#play {aftermath\move\leave water.wav} @vol}} {}
+#trigger {* drops to * knees*} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\beg.wav} @vol}} {}
+#trigger {>KEEPALIVE<} {
+#gagline all}
+#trigger {There is new activity on the following list*} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\activity.wav} @vol}} {}
+#trigger {The Forest Heart beats. *bupbup*} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\heartbeat.wav} @vol}} {}
+#trigger {* abruptly falls into a dazed trance. (* has disconnected.)} {
+#if {@silentmode = 1} {
+#play {aftermath\socials\yawn*2.wav} @vol}} {}
+#trigger {* wakes up from his trance.  (* has connected.)} {
+#if {@silentmode = 1} {
+#play {aftermath\socials\yawn*2.wav} @vol}} {}
+#trigger {There is new news. *} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\news.wav} @vol}} {}
+#trigger {*bat flies in *} {
+#if {@silentmode = 1} {
+#play {aftermath\misc\bat.wav} @vol}} {}

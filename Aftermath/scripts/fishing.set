@@ -1,0 +1,6 @@
+#TRIGGER {You plop the * into your fishbucket.} {#Play {aftermath\Fishing\fishstore.wav} @vol} {}
+#TRIGGER {*You reel in *} {#Play {aftermath\Fishing\fishreel.wav} @vol} {}
+#TRIGGER {*You feel a strong pull back on the line.  You've got something!*} {#Play {aftermath\Fishing\fishcatch.wav} @vol} {}
+#TRIGGER {* slips a * onto the hook of * fishing pole.} {#Play {aftermath\Fishing\fishbait.wav} @vol} {}
+#TRIGGER {You feel a tug on your line.} {#Play {aftermath\Fishing\fishcatch.wav} @vol} {}
+#TRIGGER {* casts * fishing pole to *} {#Play {aftermath\Fishing\fishcast.wav} @vol} {}

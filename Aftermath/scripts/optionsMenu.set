@@ -1,0 +1,92 @@
+#key f2 {
+#pic {p:Please pick from one of the options below|
+general volume down:genvoldown|
+general volume up:genvolup|
+Room volume up:roomvolup|
+Room volume down:roomvoldown|
+Roome Ambiance:roomsoundsToggle|
+pan combat:pancombat|
+socials:togglesocials|
+silent sounds:togglesounds|
+street sounds:togglestreet|
+pan swim:togglepanswim|
+changelog:changelog|
+keys:keys|
+readme:readme|
+save your pack:savepack}}
+
+#alias  genvoldown {
+#math Vol {@Vol - 5};
+#if {@Vol < 5} {@Vol = 5};
+#say {General Volume is @Vol percent};
+#File 6 {aftermath/scripts/settings.set} 1;#Var SettingsFileCounter 1;
+#Write 6 @vol @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#close 6}
+
+#alias genvolup {
+#math Vol {@Vol + 5};
+#if {@Vol > 100} {@Vol = 100};
+#say {General Volume is @Vol percent};
+#File 6 {aftermath/scripts/settings.set} 1;#Var SettingsFileCounter 1;
+#Write 6 @vol @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#close 6;
+#if {@vol = 100} {
+#say {Volume maxed. Mind your ears!}}};
+#alias Roomvolup {
+#math roomvol {@roomvol + 5};
+#if {@roomvol > 100} {@roomvol = 100};
+#If {@Silentmode = 1} {#play {aftermath\Misc\Beep*5.wav} @Vol};
+#say {Room Sound Volume is @roomvol percent}; #If {@RoomSoundPlaying = 1} {#pc @RoomHandle volume @roomvol};
+#file 6 aftermath/scripts/settings.set 2;#var SettingsFileCounter 2;
+#write 6 @roomvol @settingsFileCounter;#math settingsFileCounter {@SettingsFileCounter +1};
+#close 6}  //background volume up control
+#alias roomvoldown {
+#math roomvol {@roomvol - 5};
+#if {@roomvol < 5} {@roomvol = 5};
+#If {@Silentmode = 1} {#play {aftermath\Misc\Beep*5.wav} @Vol};
+#say {Room Sound Volume is @roomvol percent}; #If {@RoomSoundPlaying = 1} {#pc @RoomHandle volume @roomvol};
+#File 6 aftermath/scripts/Settings.set 2;#Var SettingsFileCounter 2;
+#Write 6 @roomvol @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#close 6}  //background volume down control
+#alias roomsoundsToggle {
+#if {@roomsounds = 1} {
+#Say {Ambience sounds off};
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#If {@CurrentRoom <> ""} {#Var CurrentRoom ""}; #var roomsounds 0} {#var roomsounds 1; #say {Ambient sounds on. Type look to activate them}}}
+#alias pancombat {
+#if {@panCombat = 1} {#var panCombat 0;#say {pan combat disabled.}} {#var panCombat 1;#say {pan combat enabled.}}}
+#alias togglesocials {
+#if {@socials = 1} {#var socials 0;#say {socials disabled}} {#var socials 1;#say {socials enabled}}}
+#alias togglesounds {
+#if {@silentmode = 1} {#var silentmode 0;#say {sounds off}} {#var silentmode 1;#say {sounds on}}}
+#alias togglestreet {
+#if {@street = 1} {#var street 0; #say {street sounds disabled.}} {#var street 1; #say {Street sounds enabled.}}}
+#alias togglepanswim {
+#if {@panSwim = 1} {#var panSwim 0; #say {Pan swim disabled.}} {#var panSwim 1; #say {pan swim enabled}}}
+#alias changelog {
+#edit {aftermath/helpfiles/aftermath changelog.txt}}
+#alias keys {
+#edit {aftermath/helpfiles/keys.txt}}
+#alias readme {
+#edit {aftermath/helpfiles/aftermath sp readme.txt}}
+#alias savepack {
+#file 6 {aftermath/scripts/settings.set} 1;#var settingsFileCounter 1;
+#Write 6 @vol @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#Write 6 @roomvol @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#Write 6 @roomsounds @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#Write 6 @panCombat @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#Write 6 @socials @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#Write 6 @silentmode  @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#Write 6 @street @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#Write 6 @panSwim @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#close 6;
+#say {Sound Pack Settings Saved!}}
+#key f5 { #pick {p:Please pick from a list of volume to check it's current setting.|
+general volume:genvol|
+room volume:roomvol}}
+#alias genvol {
+#say {General volume is @vol percent.}}
+#alias roomvol {
+#say {Room volume is @roomvol percent.}}

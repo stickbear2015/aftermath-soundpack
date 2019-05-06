@@ -1,0 +1,171 @@
+#TRIGGER {From your wristpad: * pages, *} {#sub {%1 pages, %2} ;
+#If {@silentmode = 1} {
+#Play {aftermath\comm\page.wav} 70}} {chan}
+#TRIGGER {You text '*' to * on your wristpad.} {#sub {You page to %2, %1} ;
+#if {@silentmode = 1} {
+#Play {aftermath\comm\page.wav} @vol}} {chan}
+#TRIGGER {[[] * ]: *, *} {#var corpname {%1} ; #var cname {%2} ; #var cmes {%3} ;
+#if {@silentmode = 1} {
+#Play {aftermath\comm\corp.wav} @vol}} {chan}
+#TRIGGER {[[] * ]*h]: *, *} {#var corpname {%1} ; #var chname {%3} ; #var chmes {%4} ; #sub {Holder @corpname @chname, @chmes} ;
+#if {@silentmode = 1} {
+#Play {aftermath\comm\ch.wav} @vol}} {chan}
+#TRIGGER {[[] * ]*b]: *, *} {#var corpname {%1 } ; #var cbname {%3} ; #var cbmes {%4} ; #sub {Board @corpname @cbname, @cbmes} ;
+#if {@silentmode = 1} {
+#Play {aftermath\comm\cb.wav} 70}} {chan}
+#TRIGGER {[[] * ]*m]: *, *} {#var corpname {%1} ; #var cmname {%3} ; #var cmmes {%4} ; #sub {Manager @corpname @cmname, @cmmes} ;
+#if {@silentmode = 1} {
+#Play {aftermath\comm\cm.wav} 70}} {chan}
+#TRIGGER {[[] * ]*s]: *, *} {#var corpname {%1} ; #var csname {%3} ; #var csmes {%4} ; #sub {Shop @corpname @csname, @csmes} ;
+#if {@silentmode = 1} {
+#Play {aftermath\comm\cm.wav} @vol}} {message}
+#TRIGGER {* [[]to *]: *} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\say.wav} @vol}} {}
+
+#TRIGGER {{say}*} {#var SayMessage {%1} ;
+#var sm9 {@sm8} ; #var sm8 {@sm7} ; #var sm7 {@sm6} ; #var sm6 {@sm5} ; #var sm5 {@sm4} ; #var sm4 {@sm3} ; #var sm3 {@sm2} ; #var sm2 {@sm1} ; #var sm1 {@SayMessage}} {message}
+#TRIGGER {From your wristpad: * pages, *} {#var TellMessage {%1 paged to you %2} ; #var tm9 {@tm8} ; #var tm8 {@tm7} ; #var tm7 {@tm6} ; #var tm6 {@tm5} ; #var tm5 {@tm4} ; #var tm4 {@tm3} ; #var tm3 {@tm2} ; #var tm2 {@tm1} ; #var tm1 {@TellMessage}} {message}
+#TRIGGER {[[]party] *: *} {#var pname {%1} ; #var pmes {%2} ; #var GroupMessage {@pname partyed, @pmes} ; #var gtm9 {@gtm8} ; #var gtm8 {@gtm7} ; #var gtm7 {@gtm6} ; #var gtm6 {@gtm5} ; #var gtm5 {@gtm4} ; #var gtm4 {@gtm3} ; #var gtm3 {@gtm2} ; #var gtm2 {@gtm1} ; #var gtm1 {@GroupMessage}} {message}
+#TRIGGER {{chan ch=spouse}*} {#var ChannelMessage {%1} ; #var cm9 {@cm8} ; #var cm8 {@cm7} ; #var cm7 {@cm6} ; #var cm6 {@cm5} ; #var cm5 {@cm4} ; #var cm4 {@cm3} ; #var cm3 {@cm2} ; #var cm2 {@cm1} ; #var cm1 {@ChannelMessage}} {message}
+#TRIGGER {[[] * ]: *, *} {#var corpname {%1} ; #var cname {%2} ; #var cmes {%3} ; #var ClanMessage {@corpname: @cname, @cmes} ; #var ctm9 {@ctm8} ; #var ctm8 {@ctm7} ; #var ctm7 {@ctm6} ; #var ctm6 {@ctm5} ; #var ctm5 {@ctm4} ; #var ctm4 {@ctm3} ; #var ctm3 {@ctm2} ; #var ctm2 {@ctm1} ; #var ctm1 {@ClanMessage}} {message}
+#TRIGGER {[[] * ]*h]: *, *} {#var corpname {%1} ; #var chname {%3} ; #var chmes {%4} ; #var ChannelMessage {holder @corpname @chname, @chmes} ; #var cm9 {@cm8} ; #var cm8 {@cm7} ; #var cm7 {@cm6} ; #var cm6 {@cm5} ; #var cm5 {@cm4} ; #var cm4 {@cm3} ; #var cm3 {@cm2} ; #var cm2 {@cm1} ; #var cm1 {@ChannelMessage}} {message}
+#TRIGGER {[[] * ]*b]: *, *} {#var corpname {%1} ; #var cbname {%3} ; #var cbmes {%4} ; #var ChannelMessage {board @corpname @cbname, @cbmes} ; #var cm9 {@cm8} ; #var cm8 {@cm7} ; #var cm7 {@cm6} ; #var cm6 {@cm5} ; #var cm5 {@cm4} ; #var cm4 {@cm3} ; #var cm3 {@cm2} ; #var cm2 {@cm1} ; #var cm1 {@ChannelMessage}} {message}
+#TRIGGER {[[] * ]*m]: *, *} {#var corpname {%1} ; #var cmname {%3} ; #var cmmes {%4} ; #var ChannelMessage {Manager @corpname @cmname, @cmmes} ; #var cm9 {@cm8} ; #var cm8 {@cm7} ; #var cm7 {@cm6} ; #var cm6 {@cm5} ; #var cm5 {@cm4} ; #var cm4 {@cm3} ; #var cm3 {@cm2} ; #var cm2 {@cm1} ; #var cm1 {@ChannelMessage}} {message}
+#TRIGGER {[[] * ]*s]: *, *} {#var corpname {%1} ; #var csname {%3} ; #var csmes {%4} ; #var ChannelMessage {Shop @corpname @csname, @csmes} ; #var cm9 {@cm8} ; #var cm8 {@cm7} ; #var cm7 {@cm6} ; #var cm6 {@cm5} ; #var cm5 {@cm4} ; #var cm4 {@cm3} ; #var cm3 {@cm2} ; #var cm2 {@cm1} ; #var cm1 {@ChannelMessage}} {chan}
+
+
+
+#Key {Alt-RIGHT} {#Play {aftermath\misc\switch_right.wav} ; #if {@ckey = 6} {#var ckey 1} ; #if {@ckey = 5} {#unload Scripts/KeysSay ; #load Scripts/KeysGt ; #say {party} ; #var ckey 6} ; #if {@ckey = 4} {#unload Scripts/KeysChannel ; #load Scripts/KeysSay ; #say {say} ; #var ckey 5} ; #if {@ckey = 3} {#unload Scripts/KeysCt ; #load Scripts/KeysChannel ; #say {lod} ; #var ckey 4} ; #if {@ckey = 2} {#unload Scripts/KeysTell ; #load Scripts/KeysCt ; #say {corpnet} ; #var ckey 3} ; #if {@ckey = 1} {#unload Scripts/KeysGt ; #load Scripts/KeysTell ; #say {page} ; #var ckey 2}} {chan}
+#trigger {[[]Chatnet] * says, "*"} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\chatnet.wav} @vol}} {}
+#trigger {{newbienet} * says, "*"} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\newbienet.wav} @vol}} {}
+#trigger {[[]Zotnet] * says, "*"} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\zotnet.wav} @vol}} {}
+#trigger {[[]Chatnet] * asks, "*"} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\chatnet.wav} @vol}} {}
+#trigger {{newbienet} * asks, "*"} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\newbienet.wav} @vol}} {}
+#trigger {[[]Zotnet] * asks, "*"} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\zotnet.wav} @vol}} {}
+#trigger {[[]Chatnet] * exclaims, "*"} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\chatnet.wav} @vol}} {}
+#trigger {{newbienet} * exclaims, "*"} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\newbienet.wav} @vol}} {}
+#trigger {[[]Zotnet] * exclaims, "*"} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\zotnet.wav} @vol}} {}
+#trigger {* says, "*"} {
+#if {@silentmode = 1} {
+#if {%ifWord([chatnet],%1," ")} {
+#abort 1};
+#if {%ifWord([newbienet],%1," ")} {
+#abort 1};
+#if {%ifWord([zotnet],%1," ")} {
+#abort 1};
+#if {%ifWord([ BOSS ]:,%1," ")} {
+#abort 1};
+#if {%ifword(tradenet,%1," ")} {
+#abort 1};
+#play {aftermath\misc\say.wav} @vol}} {} anyCase
+#trigger {* exclaims, "*"} {
+#if {@silentmode = 1} {
+#if {%ifWord([chatnet],%1," ")} {
+#abort 1};
+#if {%ifWord([newbienet],%1," ")} {
+#abort 1};
+#if {%ifWord([zotnet],%1," ")} {
+#abort 1};
+#if {%ifWord([ BOSS ]:,%1," ")} {
+#abort 1};
+#if {%ifword(tradenet,%1," ")} {
+#abort 1};
+#play {aftermath\misc\say.wav} @vol}} {} anyCase
+#trigger {* asks, "*"} {
+#if {@silentmode = 1} {
+#if {%ifWord([chatnet],%1," ")} {
+#abort 1};
+#if {%ifWord([newbienet],%1," ")} {
+#abort 1};
+#if {%ifWord([zotnet],%1," ")} {
+#abort 1};
+#if {%ifWord([ BOSS ]:,%1," ")} {
+#abort 1};
+#if {%ifword(tradenet,%1," ")} {
+#abort 1};
+#play {aftermath\misc\say.wav} @vol}} {} anyCase
+#trigger {You turn on the radio on your wristpad.} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\activate.wav} @vol}} {}
+#trigger {You turn off your wristpad radio.} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\deactivate.wav} @vol}} {}
+#trigger {You tune your wristpad radio to channel *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\tune.wav} @vol}} {}
+#trigger {[[]tradenet] * "*"} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\tradenet.wav} @vol}}
+#trigger {[[]mailnet] *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\mailnet.wav} @vol}} {}
+#trigger {*[[] * ]: * earned *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\corpPay.wav} @vol}} {}
+#TRIGGER {On your wristpad radio: *} {#sub {Radio: %1} ;
+#if {@silentmode = 1} {
+#Play {aftermath\comm\radio.wav} @vol}} {}
+#trigger {Your wristpad vibrates and beeps loudly. *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\alarm.wav} @vol}} {}
+#trigger {[[]sysnet] *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\sysnet.wav} @vol}} {}
+#trigger {[[]outnet] *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\outnet.wav} @vol}} {}
+#trigger {[[]prognet] *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\prognet.wav} @vol}} {}
+#trigger {[[]buildnet] *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\buildnet.wav} @vol}} {}
+#trigger {[[]Wiznet] *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\wiznet.wav} @vol}} {}
+#trigger {{heartnet} *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\heartnet.wav} @vol}} {}
+#trigger {[[]deathnet] *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\deathnet.wav} @vol}} {}
+#trigger {+healthnet+ *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\healthnet.wav} @vol}} {}
+#trigger {*questnet* *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\questnet.wav} @vol}} {}
+#trigger {[[]gamenet] *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\gamenet.wav} @vol}} {}
+#trigger {[[]OOC: *]} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\ooc.wav} @vol}} {}
+#trigger {{thugnet} *} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\thugnet.wav} @vol}} {}
+#trigger {* shouts, "*"} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\shout.wav} @vol}} {}
+#trigger {* yells, "*"} {
+#if {@silentmode = 1} {
+#play {aftermath\comm\yell.wav} @vol}} {}

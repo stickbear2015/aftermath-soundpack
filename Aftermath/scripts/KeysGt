@@ -1,0 +1,9 @@
+#Key {Alt-1} {#say {@gtm1}} {message}
+#Key {Alt-2} {#say {@gtm2}} {message}
+#Key {Alt-3} {#say {@gtm3}} {message}
+#Key {Alt-4} {#say {@gtm4}} {message}
+#Key {Alt-5} {#say {@gtm5}} {message}
+#Key {Alt-6} {#say {@gtm6}} {message}
+#Key {Alt-7} {#say {@gtm7}} {message}
+#Key {Alt-8} {#say {@gtm8}} {message}
+#Key {Alt-9} {#say {@gtm9}} {message}

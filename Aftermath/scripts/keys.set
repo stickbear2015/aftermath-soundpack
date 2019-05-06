@@ -1,0 +1,74 @@
+;* keys adjusting volume.
+#key f9 {
+#math Vol {@Vol - 5};
+#if {@Vol < 5} {@Vol = 5};
+#If {@SilentMode = 1} {#play {aftermath\Misc\Beep*5.wav} @Vol};
+#say {Volume is @Vol percent};
+#File 6 {aftermath/scripts/settings.set} 1;#Var SettingsFileCounter 1;
+#Write 6 @vol @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#close 6}  //volume down control
+#key f10 {
+#math Vol {@Vol + 5};
+#if {@Vol > 100} {@Vol = 100};
+#If {@SilentMode = 1} {#play {aftermath\Misc\Beep*5.wav} @Vol};
+#say {Volume is @Vol percent};
+#File 6 {aftermath/scripts/settings.set} 1;#Var SettingsFileCounter 1;
+#Write 6 @vol @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#close 6}  //volume up control
+#key control-f9 {
+#math roomvol {@roomvol - 5};
+#if {@roomvol < 5} {@roomvol = 5};
+#If {@Silentmode = 1} {#play {aftermath\Misc\Beep*5.wav} @Vol};
+#say {Room Sound Volume is @roomvol percent}; #If {@RoomSoundPlaying = 1} {#pc @RoomHandle volume @roomvol};
+#File 6 aftermath/scripts/Settings.set 2;#Var SettingsFileCounter 2;
+#Write 6 @roomvol @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#close 6}  //background volume down control
+#key control-f10 {
+#math roomvol {@roomvol + 5};
+#if {@roomvol > 100} {@roomvol = 100};
+#If {@Silentmode = 1} {#play {aftermath\Misc\Beep*5.wav} @Vol};
+#say {Room Sound Volume is @roomvol percent}; #If {@RoomSoundPlaying = 1} {#pc @RoomHandle volume @roomvol};
+#file 6 aftermath/scripts/settings.set 2;#var SettingsFileCounter 2;
+#write 6 @roomvol @settingsFileCounter;#math settingsFileCounter {@SettingsFileCounter +1};
+#close 6}  //background volume up control
+#key f11 {
+#if {@silentmode = 1} {#var silentmode 0;#say {sounds off}} {#var silentmode 1;#say {sounds on}}}  //  Used for muting or unmuting sounds globally in the sound pack.
+#key control-f11 {
+#if {@roomsounds = 1} {
+#Say {Ambience sounds off};
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#If {@CurrentRoom <> ""} {#Var CurrentRoom ""}; #var roomsounds 0} {#var roomsounds 1; #say {Ambient sounds on. Type look to activate them}}}
+#key control-f12 {
+#if {@socials = 1} {#var socials 0;#say {socials disabled}} {#var socials 1;#say {socials enabled}}}  //  Used for muting or unmuting social sounds.
+#key control-p {
+#if {@panCombat = 1} {#var panCombat 0;#say {pan combat disabled.}} {#var panCombat 1;#say {pan combat enabled.}}}
+#key control-t {
+#if {@street = 1} {#var street 0; #say {street sounds disabled.}} {#var street 1; #say {Street sounds enabled.}}}
+#key control-s {
+#if {@panSwim = 1} {#var panSwim 0; #say {Pan swim disabled.}} {#var panSwim 1; #say {pan swim enabled}}}
+;* misc keys
+
+#Key {F4} {power} {}
+#Key {F5} {shock} {}
+#Key {F3} {screech} {}
+#Key {F6} {put all hid in trail} {}
+#key f12 {
+#file 6 {aftermath/scripts/settings.set} 1;#var settingsFileCounter 1;
+#Write 6 @vol @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#Write 6 @roomvol @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#Write 6 @roomsounds @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#Write 6 @panCombat @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#Write 6 @socials @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#Write 6 @silentmode @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#Write 6 @street @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#Write 6 @panSwim @SettingsFileCounter;#Math SettingsFileCounter {@SettingsFileCounter +1};
+#close 6;
+#say {Sound Pack Settings Saved!}}
+#key alt-shift-c {
+#edit {aftermath/helpfiles/aftermath changelog.txt}}
+#key alt-shift-k {
+#edit {aftermath/helpfiles/keys.txt}}
+#key alt-shift-r {
+#edit {aftermath/helpfiles/aftermath sp readme.txt}}

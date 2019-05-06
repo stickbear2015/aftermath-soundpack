@@ -1,0 +1,12 @@
+Keystrokes for the Aftermath soundpack.
+f9 f10 Volume up and down.
+ctrl-f9-ctrl-f10 Roomsounds volume up and down.
+ctrl-f11 Mute ambiance.
+f11 Sounds toggle.
+control-f12 Socials toggle.
+control-p Combat panning toggle.
+control-t Street sound toggle.
+f12 Save sound settings.
+control-s Toggle swim panning.
+f2 Open options menu.
+f5 Volume checker.

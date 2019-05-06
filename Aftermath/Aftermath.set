@@ -1,0 +1,38 @@
+#say {Welcome to the Aftermath soundpack, version 6.3.8.}
+;* Initializing Control Variables
+#if {NOT %Defined(Vol)} {#Var Vol 60}  // Used for controling master volume for the sound pack.
+#if {NOT %Defined(roomvol)} {#Var roomvol 55}  // Used for controling room volume for the sound pack.
+#If {NOT %Defined(RoomSoundPlaying)} {#Var RoomSoundPlaying 0}  //  Used for backgrounds.
+#If {NOT %Defined(RoomSounds)} {#Var RoomSounds 1}  //  Used for backgrounds.
+#If {NOT %Defined(CurrentRoom)} {#Var CurrentRoom ""}  //  Used for backgrounds.
+#If {NOT %Defined(SilentMode)} {#Var SilentMode 0}  //  Used for muting or unmuting sounds globally in the sound pack.
+#If {NOT %Defined(panCombat)} {#Var panCombat 1}  //  Used for combat situations.
+#If {NOT %Defined(Socials)} {#Var Socials 1}  //  Used for socials.
+#if {not %defined(street)} {#var street 1}
+#if {not %defined(panSwim)} {#var panSwim 1}
+#load scripts\aliases.set
+#load scripts/boat.set
+#load scripts/combat.set ; #class combat enable
+#load scripts/communication.set ; #class chan enable ; #class message enable
+#load scripts\fishing.set
+#load scripts/keys.set
+#load scripts/KeysGt ; #var ckey 1
+#load scripts\mining.set
+#load scripts/misc.set
+#load scripts/optionsMenu.set
+#load scripts/roomMessages.set
+#load scripts\rooms.set
+#load scripts/socials.set
+#TRIGGER {Welcome to HeavenMoo 2.0!} {
+#if {@silentmode = 1} {
+#Play {aftermath\misc\theme.wav} 50}} {}
+#file 6 {aftermath/scripts/settings.set} 1;
+#read 6 vol 1;
+#read 6 roomvol 2;
+#read 6 roomsounds 3;
+#read 6 panCombat 4;
+#read 6 socials 5;
+#read 6 silentmode 6;
+#read 6 street 7;
+#read 6 panSwim 8;
+#close 6

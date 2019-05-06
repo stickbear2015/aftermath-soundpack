@@ -1,0 +1,93 @@
+#Trigger {*(*)*} {
+#If {@RoomSounds = 1} {
+#If {%IfWord(freedom city,%2," ")} {
+#If {@CurrentRoom <> "freedom"} {
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#PlayLoop {aftermath\Rooms\freedom city.wav} @roomvol;
+#Var RoomHandle %Playhandle; #Var RoomSoundPlaying 1; #Var CurrentRoom "freedom"}; #Abort 1};
+#If {%IfWord(sewers,%2," ")} {
+#If {@CurrentRoom <> "sewers"} {
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#PlayLoop {aftermath\Rooms\sewers.wav} @roomvol;
+#Var RoomHandle %Playhandle; #Var RoomSoundPlaying 1; #Var CurrentRoom "sewers"}; #Abort 1;};
+#If {%IfWord(cheers,%2," ")} {
+#If {@CurrentRoom <> "cheers"} {
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#PlayLoop {aftermath\Rooms\bar.wav} @roomvol;
+#Var RoomHandle %Playhandle; #Var RoomSoundPlaying 1; #Var CurrentRoom "cheers"}; #Abort 1;};
+#If {%IfWord(crater forest,%2," ")} {
+#If {@CurrentRoom <> "forest"} {
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#PlayLoop {aftermath\Rooms\crater forest.wav} @roomvol;
+#Var RoomHandle %Playhandle; #Var RoomSoundPlaying 1; #Var CurrentRoom "forest"}; #Abort 1;};
+#If {%IfWord(north beach,%2," ")} {
+#If {@CurrentRoom <> "beach"} {
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#PlayLoop {aftermath\Rooms\ocean.wav} @roomvol;
+#Var RoomHandle %Playhandle; #Var RoomSoundPlaying 1; #Var CurrentRoom "beach"}; #Abort 1;};
+#If {%IfWord(gangland,%2," ")} {
+#If {@CurrentRoom <> "gangland"} {
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#PlayLoop {aftermath\Rooms\gangland.wav} @roomvol;
+#Var RoomHandle %Playhandle; #Var RoomSoundPlaying 1; #Var CurrentRoom "gangland"}; #Abort 1;};
+#If {%IfWord(crater rim,%2," ")} {
+#If {@CurrentRoom <> "rim"} {
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#PlayLoop {aftermath\Rooms\crater rim.wav} @roomvol;
+#Var RoomHandle %Playhandle; #Var RoomSoundPlaying 1; #Var CurrentRoom "rim"}; #Abort 1;};
+#If {%IfWord(forgotten swamp,%2," ")} {
+#If {@CurrentRoom <> "swamp"} {
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#PlayLoop {aftermath\Rooms\swamp.wav} @roomvol;
+#Var RoomHandle %Playhandle; #Var RoomSoundPlaying 1; #Var CurrentRoom "swamp"}; #Abort 1;};
+#If {%IfWord(mountain pass,%2," ")} {
+#If {@CurrentRoom <> "mountain"} {
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#PlayLoop {aftermath\Rooms\mountain.wav} @roomvol;
+#Var RoomHandle %Playhandle; #Var RoomSoundPlaying 1; #Var CurrentRoom "mountain"}; #Abort 1;};
+#If {%IfWord(shoreline,%2," ")} {
+#If {@CurrentRoom <> "shore"} {
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#PlayLoop {aftermath\Rooms\shoreline.wav} @roomvol;
+#Var RoomHandle %Playhandle; #Var RoomSoundPlaying 1; #Var CurrentRoom "shore"}; #Abort 1;};
+#If {%IfWord(chemical plant,%2," ")} {
+#If {@CurrentRoom <> "chemical"} {
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#PlayLoop {aftermath\Rooms\chemical plant.wav} @roomvol;
+#Var RoomHandle %Playhandle; #Var RoomSoundPlaying 1; #Var CurrentRoom "chemical"}; #Abort 1;};
+#If {%IfWord(slagtown,%2," ")} {
+#If {@CurrentRoom <> "slag"} {
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#PlayLoop {aftermath\Rooms\slagtown.wav} @roomvol;
+#Var RoomHandle %Playhandle; #Var RoomSoundPlaying 1; #Var CurrentRoom "slag"}; #Abort 1};
+#If {%IfWord(Country Road,%2," ")} {
+#If {@CurrentRoom <> "road"} {
+#If {@RoomSoundPlaying = 1} {
+#pc @RoomHandle stop;
+#Var RoomSoundPlaying 0};
+#PlayLoop {aftermath\Rooms\country road.wav} @roomvol;
+#Var RoomHandle %Playhandle; #Var RoomSoundPlaying 1; #Var CurrentRoom "road"}; #Abort 1}}} {} anycase

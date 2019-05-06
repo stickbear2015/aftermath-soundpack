@@ -1,0 +1,9 @@
+#Key {Alt-1} {#say {@cm1}} {message}
+#Key {Alt-2} {#say {@cm2}} {message}
+#Key {Alt-3} {#say {@cm3}} {message}
+#Key {Alt-4} {#say {@cm4}} {message}
+#Key {Alt-5} {#say {@cm5}} {message}
+#Key {Alt-6} {#say {@cm6}} {message}
+#Key {Alt-7} {#say {@cm7}} {message}
+#Key {Alt-8} {#say {@cm8}} {message}
+#Key {Alt-9} {#say {@cm9}} {message}
